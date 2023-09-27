@@ -22,7 +22,7 @@ namespace PowerPlant.Services
                 response
                     .Add(_fuelTypeFactory
                     .Create(item.Type)
-                    .CalculatePowerPlantProduced(item));
+                    .CalculatePowerPlantProduced(powerPlant, item));
             }
 
             return response;

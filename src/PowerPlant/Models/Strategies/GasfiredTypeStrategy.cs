@@ -5,15 +5,16 @@ namespace PowerPlant.Models.Strategies
 {
     public class GasfiredTypeStrategy : IGasfiredTypeStrategy
     {
-        public PowerPlantResponse CalculatePowerPlantProduced(PowerPlant powerPlant)
+        public PowerPlantResponse CalculatePowerPlantProduced(PowerPlantRequest powerPlantList, PowerPlant powerPlant)
         {
-            var rnd = new Random();
-
-            return new PowerPlantResponse
+            if (powerPlantList.Load < powerPlant.Pmin)
             {
-                Name = powerPlant.Name,
-                Power = rnd.Next(1000)
-            };
+                return new PowerPlantResponse { Name = powerPlant.Name, Power = 0.0 };
+            }
+            else
+            {
+                return new PowerPlantResponse { Name = powerPlant.Name, Power = powerPlant.Pmax > powerPlantList.Load ? powerPlantList.Load : powerPlant.Pmax };
+            }
         }
     }
 }

@@ -5,14 +5,14 @@ namespace PowerPlant.Models.Strategies
 {
     public class WindTurbineTypeStrategy : IWindTurbineTypeStrategy
     {
-        public PowerPlantResponse CalculatePowerPlantProduced(PowerPlant powerPlant)
+        public PowerPlantResponse CalculatePowerPlantProduced(PowerPlantRequest powerPlantList, PowerPlant powerPlant)
         {
-            var rnd = new Random();
+            var calc = powerPlantList.Fuels.Wind * powerPlant.Pmax / 100.0;
 
             return new PowerPlantResponse
             {
                 Name = powerPlant.Name,
-                Power = rnd.Next(1000)
+                Power = powerPlantList.Load > calc ? calc : powerPlantList.Load
             };
         }
     }

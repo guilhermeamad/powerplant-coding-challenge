@@ -4,6 +4,6 @@ namespace PowerPlant.Models.Strategies.Interfaces
 {
     public interface IFuelTypeStrategy
     {
-        PowerPlantResponse CalculatePowerPlantProduced(PowerPlant powerPlant);
+        PowerPlantResponse CalculatePowerPlantProduced(PowerPlantRequest powerPlantList, PowerPlant powerPlant);
     }
 }
