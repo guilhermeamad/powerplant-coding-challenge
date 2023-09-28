@@ -2,6 +2,6 @@
 {
     public interface IFuelTypeFactory
     {
-        IFuelTypeStrategy Create(string fuelType);
+        IFuelTypeStrategy Create(PowerPlantType type);
     }
 }

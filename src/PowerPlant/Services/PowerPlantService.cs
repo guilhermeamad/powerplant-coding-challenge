@@ -13,7 +13,7 @@ namespace PowerPlant.Services
             _fuelTypeFactory = fuelTypeFactory;
         }
 
-        public List<PowerPlantResponse> HandlePowerPlant(PowerPlantRequest powerPlant)
+        public List<PowerPlantResponse> HandlePowerPlantCalculation(PowerPlantRequest powerPlant)
         {
             var response = new List<PowerPlantResponse>();
 

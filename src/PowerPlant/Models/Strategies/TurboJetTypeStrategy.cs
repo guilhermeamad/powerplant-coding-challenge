@@ -7,14 +7,9 @@ namespace PowerPlant.Models.Strategies
     {
         public PowerPlantResponse CalculatePowerPlantProduced(PowerPlantRequest powerPlantList, PowerPlant powerPlant)
         {
-            if (powerPlantList.Load < powerPlant.Pmin)
-            {
-                return new PowerPlantResponse { Name = powerPlant.Name, Power = powerPlantList.Load };
-            }
-            else
-            {
-                return new PowerPlantResponse { Name = powerPlant.Name, Power = powerPlant.Pmax > powerPlantList.Load ? powerPlantList.Load : powerPlant.Pmax };
-            }
+            if (powerPlantList.Load < powerPlant.Pmin) return new PowerPlantResponse { Name = powerPlant.Name, Power = powerPlantList.Load };
+
+            return new PowerPlantResponse { Name = powerPlant.Name, Power = powerPlant.Pmax > powerPlantList.Load ? powerPlantList.Load : powerPlant.Pmax };
         }
     }
 }

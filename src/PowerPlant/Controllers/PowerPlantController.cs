@@ -19,7 +19,7 @@ namespace PowerPlant.Controllers
         [HttpPost]
         public List<PowerPlantResponse> Post([FromBody] PowerPlantRequest powerPlants)
         {
-            return _powerPlantService.HandlePowerPlant(powerPlants);
+            return _powerPlantService.HandlePowerPlantCalculation(powerPlants);
         }
     }
 }

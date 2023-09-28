@@ -6,22 +6,23 @@ namespace PowerPlant.Models.Strategies
     public class FuelTypeFactory : IFuelTypeFactory
     {
         private readonly IServiceProvider _serviceProvider;
+
         public FuelTypeFactory(IServiceProvider serviceProvider) 
         {
             _serviceProvider = serviceProvider;
         }
 
-        public IFuelTypeStrategy Create(string fuelType)
+        public IFuelTypeStrategy Create(PowerPlantType type)
         {
-            switch (fuelType)
+            switch (type)
             {
-                case "gasfired":
+                case PowerPlantType.GasFired:
                     return _serviceProvider.GetRequiredService<IGasfiredTypeStrategy>();
 
-                case "turbojet":
+                case PowerPlantType.TurboJet:
                     return _serviceProvider.GetRequiredService<ITurboJetTypeStrategy>();
 
-                case "windturbine":
+                case PowerPlantType.WindTurbine:
                     return _serviceProvider.GetRequiredService<IWindTurbineTypeStrategy>();
 
                 default:

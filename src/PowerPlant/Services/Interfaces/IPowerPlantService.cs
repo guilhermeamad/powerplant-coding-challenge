@@ -4,6 +4,6 @@ namespace PowerPlant.Services.Interfaces
 {
     public interface IPowerPlantService
     {
-        List<PowerPlantResponse> HandlePowerPlant(PowerPlantRequest powerPlantResponse);
+        List<PowerPlantResponse> HandlePowerPlantCalculation(PowerPlantRequest powerPlantResponse);
     }
 }
